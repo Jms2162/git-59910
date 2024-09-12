@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*div{
+    font-size: 50px;
+}
+
+
+div h1{
+    font-size: 1em;
+}*/
+
+/*estilos generales*/
+body{
+    background-color: #0e0d0d;
+}
+
+/*estilos de header*/
+
+header{
+    display: flex;
+    align-items: center;
+}
+
+header nav ul{
+    color: white;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding-right: 1rem;
+}
+
+/*estilos de main -- se pone main ya que si pones solo las imagenes puede no funcionar la ruta -- con esto se busca que esas imagenes no se vean en dispositivos mobiles (por ahora aun se ven en desktop (antes de las media queries una vez que ya esten esto va a ocurrir unicamente en celulares))*/
+
+
+
+
+main .img-dos, main .img-cinco{
+    display: none;
+}
+
+main div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* cover -- te permite hacer que las imagenes tengan el mismo tamano que el div*/
+}
+main{
+    row-gap: 1.5rem;
+    margin: 1.8rem 1.8rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 20%);
+    height: 70vh;/*esto basicamente te dice cuanto te van a ocupar todas las imagenes en el main*/
+    
+}
+/*estilos del footer*/
+
+footer{
+    color: whitesmoke;
+    text-align: center;
+}
+
+
+/*estilos para tablet -- declaras el minimo de px para que cuando lo pase se pisen los estilos que declares aca abajo -- siempre debe ser en px ya que necesita unidades absolutas */
+ @media screen and (min-width: 600px){
+    header{
+        justify-content: space-between;
+    }
+    main{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 40%);
+        column-gap: 1.5rem;
+    }
+    /* con esta ruta hago que la imagen cuatro en la version tablet se vea a lo ancho en ambas columnas, que las declare arriba*/
+    main .img-cuatro{
+        grid-column: span 2;
+    }
+}
+
+
+/*estilos de destop*/
+@media  screen and (min-width: 1024px) {
+    main .img-dos, main .img-cinco{
+        display: block;
+    }
+
+    main{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 30% 30% 20%;
+    }
+    main .img-uno, main .img-tres{
+        grid-row: span 2;
+    }
+    main .img-dos, main .img-cuatro{
+        grid-column: span 1;
+    }
+    main .img-cinco{
+        grid-column: span 3;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+    
